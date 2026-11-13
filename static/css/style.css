@@ -1,0 +1,453 @@
+:root {
+    --bg: #0a0a0c;
+    --card: #141418;
+    --blood: #b3001b;
+    --blood-glow: #ff2a44;
+    --text: #e8e6e3;
+    --muted: #9a9a9f;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(10, 10, 12, 0.95);
+    border-bottom: 1px solid var(--blood);
+}
+
+nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 1.3rem;
+    color: var(--blood-glow);
+    text-shadow: 0 0 10px var(--blood);
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+nav a:hover {
+    color: var(--blood-glow);
+    text-shadow: 0 0 8px var(--blood);
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 70px 0 30px;
+    scroll-margin-top: 80px;
+}
+
+h1, h2, h3 {
+    font-family: Georgia, serif;
+}
+
+h1 {
+    font-size: 2.6rem;
+    color: var(--blood-glow);
+    text-shadow: 0 0 18px var(--blood);
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.9rem;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blood);
+    display: inline-block;
+}
+
+#about p {
+    color: var(--muted);
+    max-width: 700px;
+    margin-top: 10px;
+}
+
+#skills h3 {
+    color: var(--muted);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+
+#skills ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0 20px;
+}
+
+#skills li {
+    background: var(--card);
+    border: 1px solid #2a2a30;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#skills li:hover {
+    border-color: var(--blood);
+    box-shadow: 0 0 10px var(--blood);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.project-card {
+    background: var(--card);
+    border: 1px solid #2a2a30;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--blood);
+    box-shadow: 0 0 20px rgba(179, 0, 27, 0.5);
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.project-card h3 {
+    color: var(--blood-glow);
+}
+
+.project-card p {
+    color: var(--muted);
+}
+
+.project-card a {
+    margin-top: auto;
+    align-self: flex-start;
+    background: var(--blood);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.project-card a:hover {
+    background: var(--blood-glow);
+}
+
+.contact-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contact-links a {
+    color: var(--blood-glow);
+    text-decoration: none;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    border-top: 1px solid var(--blood);
+    color: var(--muted);
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        padding-top: 50px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Cobwebs in the corners */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    top: 62px;
+    width: 240px;
+    height: 240px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23d0d0d6' stroke-width='1'%3E%3Cpath d='M0 0 L200 0 M0 0 L185 77 M0 0 L141 141 M0 0 L77 185 M0 0 L0 200'/%3E%3Cpath d='M60 0 Q55.9 11.1 55.4 23 Q47.4 31.7 42.4 42.4 Q31.7 47.4 23 55.4 Q11.1 55.9 0 60'/%3E%3Cpath d='M110 0 Q102.5 20.4 101.6 42.1 Q86.8 58.1 77.8 77.8 Q58.1 86.8 42.1 101.6 Q20.4 102.5 0 110'/%3E%3Cpath d='M160 0 Q149.1 29.6 147.8 61.3 Q126.3 84.5 113.1 113.1 Q84.5 126.3 61.3 147.8 Q29.6 149.1 0 160'/%3E%3C/g%3E%3C/svg%3E") no-repeat;
+    background-size: contain;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::before {
+    left: 0;
+}
+
+body::after {
+    right: 0;
+    transform: scaleX(-1);
+}
+
+/* Hanging spider */
+.spider {
+    position: fixed;
+    top: -250px;
+    right: 90px;
+    z-index: 5;
+    font-size: 2rem;
+    text-align: center;
+    pointer-events: none;
+    animation: spider-drop 6s ease-in-out infinite;
+}
+
+.spider .thread {
+    display: block;
+    width: 1px;
+    height: 300px;
+    margin: 0 auto;
+    background: #d0d0d6;
+}
+
+@keyframes spider-drop {
+    0%, 100% {
+        transform: translateY(70px);
+    }
+    50% {
+        transform: translateY(200px);
+    }
+}
+
+/* Skulls */
+.logo::before {
+    content: "\1F480\00A0";
+}
+
+h2::before {
+    content: "\1F480\00A0";
+    font-size: 0.8em;
+}
+
+footer::before {
+    content: "\1F578\FE0F\00A0\1F480\00A0\1F577\FE0F";
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+    .spider {
+        display: none;
+    }
+
+    body::before,
+    body::after {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+/* ===== Horror atmosphere ===== */
+body {
+    background: radial-gradient(ellipse at center, #1a0509 0%, #0a0a0c 55%, #000 100%) fixed;
+}
+
+/* red blood glow at the bottom of the screen */
+html::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30vh;
+    background: linear-gradient(to top, rgba(138, 0, 16, 0.35), transparent);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* blood dripping from the header */
+header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 40px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cg fill='%238a0010'%3E%3Crect width='100' height='7'/%3E%3Crect x='12' width='8' height='30' rx='4'/%3E%3Crect x='46' width='7' height='20' rx='3.5'/%3E%3Crect x='78' width='9' height='36' rx='4.5'/%3E%3C/g%3E%3C/svg%3E") repeat-x;
+    background-size: 100px 40px;
+    pointer-events: none;
+}
+
+/* vampire in the background */
+main::before {
+    content: "\1F9DB";
+    position: fixed;
+    right: 3%;
+    bottom: 8%;
+    font-size: 11rem;
+    opacity: 0.13;
+    filter: drop-shadow(0 0 25px #b3001b);
+    pointer-events: none;
+    z-index: -1;
+    animation: vampire-breathe 5s ease-in-out infinite;
+}
+
+@keyframes vampire-breathe {
+    0%, 100% {
+        opacity: 0.08;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.2;
+        transform: scale(1.06);
+    }
+}
+
+/* flying bats */
+main::after {
+    content: "\1F987  \1F987";
+    position: fixed;
+    top: 25%;
+    left: -150px;
+    font-size: 2.2rem;
+    white-space: pre;
+    pointer-events: none;
+    z-index: 4;
+    animation: bats-fly 14s linear infinite;
+}
+
+@keyframes bats-fly {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(30vw, -40px);
+    }
+    50% {
+        transform: translate(60vw, 30px);
+    }
+    75% {
+        transform: translate(90vw, -30px);
+    }
+    100% {
+        transform: translate(115vw, 10px);
+    }
+}
+
+/* flickering title */
+h1 {
+    animation: flicker 4s infinite;
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        opacity: 0.55;
+    }
+}
+
+/* blood-red details */
+::selection {
+    background: var(--blood);
+    color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0c;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--blood);
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    main::before {
+        font-size: 6rem;
+    }
+
+    header::after {
+        height: 28px;
+        background-size: 70px 28px;
+    }
+}

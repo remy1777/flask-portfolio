@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="spider"><span class="thread"></span>&#128375;&#65039;</div>
+    <header>
+        <nav>
+            <div class="logo">Reem Mazen Khrfan</div>
+            <ul>
+                <li><a href="#about">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h1>Hi, I'm Reem Mazen Khrfan</h1>
+            <p>Aspiring Python Developer | Recent Graduate</p>
+            <p>I'm a recent graduate at the start of my programming journey, passionate about artificial intelligence and programming. I enjoy building projects in Python and sharing them on GitHub, and I'm committed to growing my skills every day. This portfolio is my first Flask web application.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+
+            <h3>Languages</h3>
+            <ul>
+                <li>Python</li>
+                <li>HTML (basics)</li>
+            </ul>
+
+            <h3>Frameworks</h3>
+            <ul>
+                <li>Flask (learning)</li>
+            </ul>
+
+            <h3>Tools</h3>
+            <ul>
+                <li>Git &amp; GitHub</li>
+                <li>Command line</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                {% for project in projects %}
+                <article class="project-card">
+                    {% if project.image %}
+                    <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }}">
+                    {% endif %}
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.description }}</p>
+                    <p>Tech: {{ project.tech_stack | join(", ") }}</p>
+                    <a href="{{ project.github_url }}" target="_blank" rel="noopener">View on GitHub</a>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <ul class="contact-links">
+                <li><a href="mailto:reemkhrfan@gmail.com">reemkhrfan@gmail.com</a></li>
+                <li><a href="https://github.com/remy1777" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Reem Mazen Khrfan. All rights reserved.</p>
+    </footer>
+</body>
+</html>
